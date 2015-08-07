@@ -1,0 +1,24 @@
+mainmodule jacobi2d {
+  readonly CProxy_Main mainProxy;
+  readonly int array_dim;
+  readonly int block_dim;
+
+  mainchare Main {
+    entry Main(CkArgMsg *m);
+    entry void report(int,int,int,double);
+  };
+
+  array [3D] Jacobi 
+  {
+    // Normal Charm++ entry methods
+    entry Jacobi(void);
+    entry void begin_iteration(void);
+    entry void ghostsFromLeft(int len, double s[len]);
+    entry void ghostsFromRight(int len, double s[len]);
+    entry void ghostsFromTop(int len, double s[len]);
+    entry void ghostsFromBottom(int len, double s[len]);
+    entry void ghostsFromBack(int len, double s[len]);
+    entry void ghostsFromFront(int len, double s[len]);
+
+  };
+};
